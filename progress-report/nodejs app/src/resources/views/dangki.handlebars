@@ -1,0 +1,46 @@
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+<body>
+<table id="student">
+    <tr>
+        <th>Giáo viên hướng dẫn</th>
+        <th>Đề tài</th>
+        <th>Lưu ý</th>
+        <th>Thông tin sinh viên</th>
+    </tr>
+    <!-- Dữ liệu sẽ được thêm vào đây bằng JavaScript -->
+</table>
+
+<button onclick="registerStudent()">Đăng kí</button>
+
+<script>
+    function addRow(teacher, topic, note, studentInfo) {
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+
+        cell1.innerHTML = teacher;
+        cell2.innerHTML = topic;
+        cell3.innerHTML = note;
+        cell4.innerHTML = "<input type='text' value='" + studentInfo + "' readonly>";
+        cell5.innerHTML = "<button onclick='editStudentInfo(this)'>Chỉnh sửa</button>";
+    }
+
+    function editStudentInfo(button) {
+        var row = button.parentNode.parentNode;
+        var studentInfoCell = row.cells[3].getElementsByTagName("input")[0];
+        studentInfoCell.removeAttribute("readonly");
+    }
+
+    function registerStudent() {
+        // Logic để xử lý đăng kí sinh viên
+    }
+</script>
+
+</body>
+</html>
