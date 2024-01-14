@@ -1,0 +1,12 @@
+<!-- header.handlebars -->
+
+<header>
+  <h1>Đề Tài Đồ Án</h1>
+  <ul>
+    {{#if session.user}}
+      <li><a href="/myTable" data-page="myTable" class="{{#eq page 'myTable'}}active{{/eq}}">Quản lý đề tài</a></li>
+    
+    {{/if}}
+    <li><a href="/logout">Đăng xuất</a></li>
+  </ul>
+</header>
